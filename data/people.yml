@@ -1,0 +1,9 @@
+- name: "Feng Guo"
+  title: "Lab leader"
+  img: "img/people/guo.jpeg"
+  link: "https://www.stat.vt.edu/people/stat-faculty/guo-feng.html"
+
+- name: "Jane Doe"
+  title: "Researcher"
+  img: "img/people/jane.jpg"
+  link: "#"
