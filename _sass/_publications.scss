@@ -1,0 +1,31 @@
+// Selected publications — APA reference list
+
+#publications {
+  .publication-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 900px;
+    text-align: left;
+  }
+
+  .publication {
+    // APA references use a hanging indent: first line flush, the rest indented.
+    padding-left: 2em;
+    text-indent: -2em;
+    margin-bottom: 1.25em;
+    // The theme sets a 20px body size, which is heavy for a reference list.
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .pub-title {
+    // APA sentence-cases article titles and leaves them unstyled; the venue
+    // carries the italics instead.
+    color: inherit;
+  }
+
+  .pub-link {
+    word-break: break-word;
+  }
+}

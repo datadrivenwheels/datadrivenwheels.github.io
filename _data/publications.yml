@@ -1,0 +1,48 @@
+# Selected publications, newest first (display order is file order).
+#
+# Fields use BibTeX names and conventions, so you can copy values straight out
+# of a .bib entry from Google Scholar or Zotero. APA formatting is applied at
+# build time by _includes/publication.html — you never write APA by hand.
+#
+#   type      BibTeX entry type: article | inproceedings  (anything else falls
+#             back to a generic form)
+#   author    BibTeX style: "Last, First and Last, First and ..."
+#             Keep the " and " separator and the "Last, First" order; initials
+#             and the APA ampersand are generated for you.
+#   title     Braces for case protection are fine: "{XGBoost} for crash risk"
+#   journal   for type: article        booktitle for type: inproceedings
+#   volume / number / pages           pages may use BibTeX's "45--67"
+#   year      Required — shown in parentheses
+#   doi       Preferred over url; rendered as https://doi.org/<doi>
+#   url       Used only when there is no doi
+#
+# ---------------------------------------------------------------------------
+# TODO: these are placeholders so you can see the APA rendering. Replace them
+# with real entries — delete any field that does not apply.
+# ---------------------------------------------------------------------------
+
+- type: article
+  author: "Placeholder, Aaron B. and Second, Carol D. and Third, Evan F."
+  title: "Replace this with a real journal article title"
+  journal: "Journal Name Here"
+  volume: "42"
+  number: "3"
+  pages: "101--118"
+  year: 2026
+  doi: "10.0000/placeholder.2026.001"
+
+- type: inproceedings
+  author: "Placeholder, Aaron B. and Second, Carol D."
+  title: "Replace this with a real conference paper title"
+  booktitle: "Proceedings of the Conference Name Here"
+  pages: "1--9"
+  year: 2025
+  url: "https://example.org/placeholder-conference-paper"
+
+- type: article
+  author: "Placeholder, Aaron B."
+  title: "A single-author example, to show the {APA} author rules"
+  journal: "Another Journal Name"
+  volume: "7"
+  pages: "55--72"
+  year: 2024

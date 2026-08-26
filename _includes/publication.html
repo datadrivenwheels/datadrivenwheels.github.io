@@ -1,0 +1,69 @@
+{%- comment -%}
+Renders one entry from _data/publications.yml as an APA reference.
+  include.pub  the entry
+
+Input is BibTeX-shaped; the APA conventions applied here are:
+  - "Last, First Middle" becomes "Last, F. M."
+  - two or more authors take a comma before the ampersand
+  - journal name and volume are italicised, the issue number is not
+  - BibTeX's "45--67" page range becomes an en dash
+  - braces used for case protection in titles are stripped
+{%- endcomment -%}
+
+{%- comment -%} Authors: BibTeX "and"-separated, converted to APA initials. {%- endcomment -%}
+{%- assign author_list = include.pub.author | default: "" | split: " and " -%}
+{%- assign author_count = author_list | size -%}
+{%- assign names = "" -%}
+{%- for raw in author_list -%}
+  {%- assign bits = raw | strip | split: ", " -%}
+  {%- assign surname = bits[0] | strip -%}
+  {%- assign givens = bits[1] | default: "" | strip -%}
+  {%- assign initials = "" -%}
+  {%- if givens != "" -%}
+    {%- assign given_words = givens | split: " " -%}
+    {%- for g in given_words -%}
+      {%- assign ch = g | slice: 0, 1 | upcase -%}
+      {%- assign initials = initials | append: ch | append: "." -%}
+      {%- unless forloop.last -%}{%- assign initials = initials | append: " " -%}{%- endunless -%}
+    {%- endfor -%}
+  {%- endif -%}
+  {%- if initials == "" -%}
+    {%- assign one = surname -%}
+  {%- else -%}
+    {%- assign one = surname | append: ", " | append: initials -%}
+  {%- endif -%}
+  {%- comment -%} Separator: ", " between, ", & " before the last of several. {%- endcomment -%}
+  {%- if forloop.first -%}
+    {%- assign names = one -%}
+  {%- elsif forloop.last and author_count > 1 -%}
+    {%- assign names = names | append: ", & " | append: one -%}
+  {%- else -%}
+    {%- assign names = names | append: ", " | append: one -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- comment -%} Clean up the BibTeX-isms. {%- endcomment -%}
+{%- assign title = include.pub.title | default: "" | replace: "{", "" | replace: "}", "" | strip -%}
+{%- assign pages = include.pub.pages | default: "" | replace: "--", "–" | strip -%}
+{%- assign venue = include.pub.journal | default: include.pub.booktitle | default: "" | replace: "{", "" | replace: "}", "" | strip -%}
+{%- if include.pub.doi and include.pub.doi != "" -%}
+  {%- assign link = include.pub.doi | prepend: "https://doi.org/" -%}
+{%- else -%}
+  {%- assign link = include.pub.url | default: "" -%}
+{%- endif -%}
+
+<li class="publication">
+  <span class="pub-authors">{{ names }}</span>
+  {%- if include.pub.year %} <span class="pub-year">({{ include.pub.year }}).</span>{%- endif %}
+  <span class="pub-title">{{ title }}{% unless title contains "?" or title contains "!" %}.{% endunless %}</span>
+  {%- if venue != "" %}
+  {%- if include.pub.type == "inproceedings" %}
+  In <em class="pub-venue">{{ venue }}</em>{% if pages != "" %} (pp. {{ pages }}){% endif %}.
+  {%- else %}
+  <em class="pub-venue">{{ venue }}</em>{% if include.pub.volume %}, <em>{{ include.pub.volume }}</em>{% if include.pub.number %}({{ include.pub.number }}){% endif %}{% endif %}{% if pages != "" %}, {{ pages }}{% endif %}.
+  {%- endif %}
+  {%- endif %}
+  {%- if link != "" %}
+  <a class="pub-link" href="{{ link }}">{{ link }}</a>
+  {%- endif %}
+</li>

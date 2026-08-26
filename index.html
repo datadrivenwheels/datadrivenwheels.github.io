@@ -3,8 +3,8 @@ layout: default
 ---
 
 {%- comment -%}
-Page content is just two data-driven sections. To add a project or a person,
-edit _data/projects.yml or _data/people.yml — nothing here needs to change.
+Page content is three data-driven sections. To add a project, a person, or a
+publication, edit the matching file in _data/ — nothing here needs to change.
 {%- endcomment -%}
 
 <!-- Portfolio Grid Section -->
@@ -22,3 +22,15 @@ edit _data/projects.yml or _data/people.yml — nothing here needs to change.
 {%- endfor -%}
 {%- endcapture -%}
 {% include section.html id="about" title="People" variant="success" content=people_grid %}
+
+<!-- Selected Publications Section -->
+{%- capture publication_list -%}
+<div class="col-lg-12">
+    <ul class="publication-list">
+        {%- for pub in site.data.publications -%}
+        {% include publication.html pub=pub %}
+        {%- endfor -%}
+    </ul>
+</div>
+{%- endcapture -%}
+{% include section.html id="publications" title="Selected Publications" content=publication_list %}

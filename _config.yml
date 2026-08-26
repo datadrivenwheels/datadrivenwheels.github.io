@@ -24,6 +24,8 @@ nav:
     url: "#portfolio"
   - title: People
     url: "#about"
+  - title: Publications
+    url: "#publications"
 
 # Footer social icons -------------------------------------------------------
 # `icon` is a Font Awesome 4 name (fa-<icon>). Set real URLs or delete entries.
