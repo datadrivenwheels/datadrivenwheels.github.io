@@ -48,3 +48,65 @@
     margin: 0 0 30px;
   }
 }
+
+// Projects paging ----------------------------------------------------------
+// The sliding layout is gated behind .is-paged, which js/project-pager.js adds.
+// Without the script the pages stack and every project stays visible.
+
+.projects-viewport.is-paged {
+  overflow: hidden;
+}
+
+.projects-track.is-paged {
+  display: flex;
+  // Flex makes the track as tall as its tallest page, and stretches the rest to
+  // match. That is what keeps a part-full last page the same height as a full
+  // one, rather than collapsing to fit two tiles.
+  align-items: stretch;
+  transition: transform 0.5s ease-in-out;
+}
+
+.projects-track.is-paged .projects-page {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects-track.is-paged {
+    transition: none;
+  }
+}
+
+// Projects pager -----------------------------------------------------------
+// Uses the theme's .btn-outline, which is drawn for a maroon band - the same
+// band the Projects section now sits on.
+
+.projects-pager {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.projects-pager .project-page-btn {
+  // .btn-outline carries a 15px top margin of its own; even it out.
+  margin: 5px 4px 0;
+  min-width: 46px;
+  padding: 6px 12px;
+  font-size: 16px;
+}
+
+// The theme only styles .active for hover-like states, so spell out the
+// current page: filled, to read as selected rather than merely hovered.
+.projects-pager .project-page-btn.active {
+  background: white;
+  color: #861F41;
+}
+
+.projects-pager .project-page-btn[disabled] {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.projects-pager .project-page-btn[disabled]:hover {
+  background: transparent;
+  color: white;
+}

@@ -2,9 +2,9 @@
 
 // Every avatar renders at exactly this size regardless of the source image's
 // dimensions, so the grid stays even and the names line up across the row.
-// 240px is the largest size that does not upscale the smallest photo we ship
-// (256px); raising it means blurrier small photos, not bigger ones.
-$avatar-size: 240px;
+// Sized to sit comfortably in a 4-across row; also stays under the 256px
+// smallest photo we ship, so nothing is upscaled.
+$avatar-size: 180px;
 
 // The anchor must be a block with a definite width, otherwise the percentage
 // width on .people below has no containing block to resolve against and the
@@ -30,7 +30,9 @@ $avatar-size: 240px;
 }
 
 .people_name {
-  color: white;
+  // Inherit from the band, so these read correctly whether the People section
+  // is the white one or the maroon one.
+  color: inherit;
   text-align: center;
   font-size: 2em;
   width: 100%;
@@ -39,24 +41,51 @@ $avatar-size: 240px;
 }
 
 .people_title {
-  color: white;
+  color: inherit;
   text-align: center;
   font-size: 1.3em;
   width: 100%;
   display: block;
 }
 
+// Flex rather than floats, so rows can be spaced with row-gap. Tiles align
+// left, which keeps the columns lined up between the two groups no matter how
+// many people are in each. Floats are ignored on flex items, so the Bootstrap
+// column widths still apply.
+.people-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  // Breathing room between wrapped rows. The portfolio grid gets this from
+  // its own #portfolio-scoped margin rule, which does not reach here.
+  row-gap: 50px;
+}
+
+.people-grid > .portfolio-item {
+  float: none;
+}
+
+// Below the sm breakpoint the Bootstrap column has no width, so without this
+// the flex item would shrink to its content and the avatar would no longer be
+// centred on the page.
+@media (max-width: 767px) {
+  .people-grid > .portfolio-item {
+    width: 100%;
+  }
+}
+
 // Group heading ("Current Members" / "Past Members"), only rendered when the
 // lab has past members. Sits on the maroon band, so it is white.
 .people-group {
-  color: white;
+  color: inherit;
   text-align: center;
   font-size: 1.6em;
-  margin: 0 0 40px;
+  margin: 80px 0 40px;
   opacity: 0.85;
 }
 
-// Space between the two grids.
-.people-group + .row {
-  margin-bottom: 20px;
+// The first heading sits directly under the section title, which already has
+// its own spacing.
+.people-group:first-child {
+  margin-top: 0;
 }

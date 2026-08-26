@@ -6,7 +6,7 @@ A person with no `link` renders the photo without an anchor; a person with no
 {%- endcomment -%}
 {%- assign link = include.person.link -%}
 {%- if link == '#' or link == '' -%}{%- assign link = nil -%}{%- endif -%}
-<div class="col-sm-4 portfolio-item">
+<div class="col-sm-3 portfolio-item">
     {%- if link %}
     <a href="{{ link }}" class="people-link">
         <img src="{{ include.person.img | relative_url }}" class="img-responsive people" alt="{{ include.person.name }}">

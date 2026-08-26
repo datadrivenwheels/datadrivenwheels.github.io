@@ -1,0 +1,53 @@
+# News board, newest first (display order is file order, so add new items on top).
+#
+#   date       A YAML date, YYYY-MM-DD. Rendered as "Aug 26, 2026".
+#   date_text  Use instead of `date` for something a date cannot express,
+#              e.g. "Fall 2026". Takes precedence over `date`.
+#   text       The item itself. Inline HTML is allowed and not escaped.
+#   url        Optional. Makes the item text a link.
+#
+# The whole section disappears if this file is empty, so there is no empty
+# panel to look at before the first real item.
+#
+# ---------------------------------------------------------------------------
+# TODO: placeholders so the board is visible and scrollable. Replace them with
+# real lab news - paper acceptances, awards, new members, talks.
+# ---------------------------------------------------------------------------
+
+- date: 2026-08-01
+  text: "Placeholder - replace with real news. This one has a <a href=\"https://www.vtti.vt.edu/\">link inside the text</a>."
+
+- date: 2026-07-18
+  text: "Placeholder - a longer item, to check how the board handles an entry that wraps onto two or three lines inside the scrolling panel."
+
+- date: 2026-06-15
+  text: "Placeholder - a paper acceptance or award would go here."
+  url: "https://example.org/placeholder"
+
+- date: 2026-05-30
+  text: "Placeholder - a dataset or code release."
+
+- date: 2026-04-02
+  text: "Placeholder - a new lab member joining, or a student defending."
+
+- date: 2026-03-11
+  text: "Placeholder - a grant or contract award."
+
+- date: 2026-02-20
+  text: "Placeholder - a conference talk or invited seminar."
+  url: "https://example.org/placeholder-talk"
+
+- date: 2026-01-09
+  text: "Placeholder - a media mention or press release."
+
+- date: 2025-12-05
+  text: "Placeholder - a workshop the lab organised or attended."
+
+- date: 2025-11-14
+  text: "Placeholder - a student award or fellowship."
+
+- date: 2025-10-01
+  text: "Placeholder - a collaboration or visiting researcher."
+
+- date_text: "Fall 2025"
+  text: "Placeholder - shows date_text, for when an exact day does not apply."

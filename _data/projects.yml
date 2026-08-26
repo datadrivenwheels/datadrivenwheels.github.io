@@ -78,3 +78,59 @@
   image: "img/portfolio/submarine.png"
   description: *boilerplate
   details: *boilerplate_details
+
+- title: "Placeholder project 7 - replace with a real title"
+  placeholder: true
+  thumb: "img/projects/project1.png"
+  image: "img/portfolio/cabin.png"
+  description: *boilerplate
+  details: *boilerplate_details
+
+- title: "Placeholder project 8 - replace with a real title"
+  placeholder: true
+  thumb: "img/projects/project2.png"
+  image: "img/portfolio/cake.png"
+  description: *boilerplate
+  details: *boilerplate_details
+
+- title: "Placeholder project 9 - replace with a real title"
+  placeholder: true
+  thumb: "img/projects/project3.png"
+  image: "img/portfolio/circus.png"
+  description: *boilerplate
+  details: *boilerplate_details
+
+- title: "Placeholder project 10 - replace with a real title"
+  placeholder: true
+  thumb: "img/projects/project4.jpg"
+  image: "img/portfolio/game.png"
+  description: *boilerplate
+  details: *boilerplate_details
+
+- title: "Placeholder project 11 - replace with a real title"
+  placeholder: true
+  thumb: "img/projects/project5.jpg"
+  image: "img/portfolio/safe.png"
+  description: *boilerplate
+  details: *boilerplate_details
+
+- title: "Placeholder project 12 - replace with a real title"
+  placeholder: true
+  thumb: "img/projects/project6.jpg"
+  image: "img/portfolio/submarine.png"
+  description: *boilerplate
+  details: *boilerplate_details
+
+- title: "Placeholder project 13 - replace with a real title"
+  placeholder: true
+  thumb: "img/portfolio/cabin.png"
+  image: "img/portfolio/cabin.png"
+  description: *boilerplate
+  details: *boilerplate_details
+
+- title: "Placeholder project 14 - replace with a real title"
+  placeholder: true
+  thumb: "img/portfolio/cake.png"
+  image: "img/portfolio/cake.png"
+  description: *boilerplate
+  details: *boilerplate_details

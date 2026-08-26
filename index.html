@@ -7,13 +7,66 @@ Page content is three data-driven sections. To add a project, a person, or a
 publication, edit the matching file in _data/ — nothing here needs to change.
 {%- endcomment -%}
 
+{%- comment -%}
+News board. Skipped entirely when _data/news.yml is empty, so there is never an
+empty panel. The panel scrolls rather than growing, so adding news does not
+push the rest of the page down.
+{%- endcomment -%}
+{%- if site.data.news and site.data.news != empty %}
+<!-- News Section -->
+{%- capture news_board -%}
+<div class="col-lg-12">
+    <div class="news-board">
+        <ul class="news-list">
+            {%- for item in site.data.news -%}
+            {% include news-item.html item=item %}
+            {%- endfor -%}
+        </ul>
+    </div>
+</div>
+{%- endcapture -%}
+{% include section.html id="news" title="News" content=news_board %}
+{%- endif %}
+
+{%- comment -%}
+Projects are split into pages of `projects_per_page` here, so the grouping
+exists in the HTML rather than being assembled by script. Every project and
+every modal is in the page, so nothing is hidden from search engines.
+
+js/project-pager.js slides the track sideways between pages. Without it the
+pages simply stack and all projects are visible, which is why the sliding CSS
+is gated behind the .is-paged class the script adds.
+
+Modal ids are global, so the card index has to be the offset plus the position
+within the page, not the inner loop's own index.
+{%- endcomment -%}
+{%- assign per_page = site.projects_per_page | default: 6 -%}
+{%- assign total_projects = site.data.projects | size -%}
+{%- assign page_count = total_projects | divided_by: per_page -%}
+{%- assign leftover = total_projects | modulo: per_page -%}
+{%- if leftover > 0 -%}{%- assign page_count = page_count | plus: 1 -%}{%- endif -%}
 <!-- Portfolio Grid Section -->
 {%- capture projects_grid -%}
-{%- for project in site.data.projects -%}
-{% include project-card.html project=project index=forloop.index0 %}
-{%- endfor -%}
+<div class="col-lg-12">
+    <div class="projects-viewport">
+        <div class="projects-track" data-pager="#projects-pager">
+            {%- for p in (1..page_count) -%}
+            {%- assign offset = forloop.index0 | times: per_page -%}
+            <div class="projects-page" data-page="{{ forloop.index0 }}">
+                <div class="row">
+                    {%- for project in site.data.projects offset: offset limit: per_page -%}
+                    {%- assign card_index = offset | plus: forloop.index0 -%}
+                    {% include project-card.html project=project index=card_index %}
+                    {%- endfor -%}
+                </div>
+            </div>
+            {%- endfor -%}
+        </div>
+    </div>
+    <nav id="projects-pager" class="projects-pager" aria-label="Projects pages" hidden></nav>
+</div>
 {%- endcapture -%}
-{% include section.html id="portfolio" title="Projects" content=projects_grid %}
+{% include section.html id="portfolio" title="Projects" variant="success" content=projects_grid %}
 
 <!-- About Section -->
 {%- comment -%}
@@ -27,14 +80,14 @@ there are past members, so a lab with only current members reads as one grid.
     {%- if past and past != empty %}
     <h3 class="people-group">Current Members</h3>
     {%- endif %}
-    <div class="row">
+    <div class="row people-grid">
         {%- for person in current -%}
         {% include person-card.html person=person %}
         {%- endfor -%}
     </div>
     {%- if past and past != empty %}
     <h3 class="people-group">Past Members</h3>
-    <div class="row">
+    <div class="row people-grid">
         {%- for person in past -%}
         {% include person-card.html person=person %}
         {%- endfor -%}
@@ -42,7 +95,7 @@ there are past members, so a lab with only current members reads as one grid.
     {%- endif %}
 </div>
 {%- endcapture -%}
-{% include section.html id="about" title="People" variant="success" content=people_grid %}
+{% include section.html id="about" title="People" content=people_grid %}
 
 <!-- Selected Publications Section -->
 {%- capture publication_list -%}
@@ -54,4 +107,4 @@ there are past members, so a lab with only current members reads as one grid.
     </ul>
 </div>
 {%- endcapture -%}
-{% include section.html id="publications" title="Selected Publications" content=publication_list %}
+{% include section.html id="publications" title="Selected Publications" variant="success" content=publication_list %}

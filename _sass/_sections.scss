@@ -19,3 +19,17 @@ section.success {
     padding-top: 75px;
   }
 }
+
+// The theme's link colour is the same maroon as the .success band, so links
+// there need lifting out. Applies to the publication DOIs and to anything
+// added to a maroon section later.
+section.success a {
+  color: white;
+  text-decoration: underline;
+}
+
+section.success a:hover,
+section.success a:focus {
+  color: white;
+  text-decoration: none;
+}

@@ -17,9 +17,15 @@ contact:
   name: Feng Guo
   email: fguo@vtti.vt.edu
 
+# How many projects per page in the Projects grid. Paging happens in the
+# browser; see js/project-pager.js.
+projects_per_page: 6
+
 # Navigation ----------------------------------------------------------------
 # Anchor links into the sections rendered by index.html.
 nav:
+  - title: News
+    url: "#news"
   - title: Projects
     url: "#portfolio"
   - title: People

@@ -1,0 +1,22 @@
+{%- comment -%}
+One entry on the news board.
+  include.item  an entry from _data/news.yml
+`date_text` wins over `date`; a bad `date` would fail the build, so anything
+that is not a real date belongs in `date_text`.
+{%- endcomment -%}
+<li class="news-item">
+  <span class="news-date">
+    {%- if include.item.date_text -%}
+      {{ include.item.date_text }}
+    {%- elsif include.item.date -%}
+      {{ include.item.date | date: "%b %d, %Y" }}
+    {%- endif -%}
+  </span>
+  <span class="news-text">
+    {%- if include.item.url -%}
+      <a href="{{ include.item.url }}">{{ include.item.text }}</a>
+    {%- else -%}
+      {{ include.item.text }}
+    {%- endif -%}
+  </span>
+</li>
