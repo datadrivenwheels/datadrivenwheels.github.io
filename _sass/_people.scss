@@ -45,3 +45,18 @@ $avatar-size: 240px;
   width: 100%;
   display: block;
 }
+
+// Group heading ("Current Members" / "Past Members"), only rendered when the
+// lab has past members. Sits on the maroon band, so it is white.
+.people-group {
+  color: white;
+  text-align: center;
+  font-size: 1.6em;
+  margin: 0 0 40px;
+  opacity: 0.85;
+}
+
+// Space between the two grids.
+.people-group + .row {
+  margin-bottom: 20px;
+}

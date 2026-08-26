@@ -87,6 +87,18 @@ index.html         Three data-driven sections; loops over _data
 img/  js/  vendor/ Images, theme JavaScript, third-party libraries
 ```
 
+## Keep _sass ASCII-only
+
+GitHub Pages compiles Sass with Ruby Sass 3.x, which treats input as US-ASCII
+and fails the build on any multibyte character - even inside a comment:
+
+    Sass::SyntaxError: Invalid US-ASCII character "\xE2"
+
+Dart Sass, which Jekyll 4 uses locally, accepts them, so this passes locally
+and breaks on Pages. Use plain hyphens and quotes in `_sass/` and
+`css/main.scss`. Everywhere else (templates, `_data/`, this file) is read as
+UTF-8 and is fine.
+
 ## Local preview
 
 Optional — pushing to `main` is enough to deploy. Needs Ruby 3.x or newer

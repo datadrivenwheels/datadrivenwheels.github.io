@@ -1,7 +1,8 @@
 {%- comment -%}
-One tile in the People grid.
+One tile in a People grid. Serves both groups:
   include.person  an entry from _data/people.yml
-A person with no `link` renders the photo without an anchor.
+A person with no `link` renders the photo without an anchor; a person with no
+`title` (past members) renders just the name.
 {%- endcomment -%}
 {%- assign link = include.person.link -%}
 {%- if link == '#' or link == '' -%}{%- assign link = nil -%}{%- endif -%}
@@ -14,5 +15,7 @@ A person with no `link` renders the photo without an anchor.
     <img src="{{ include.person.img | relative_url }}" class="img-responsive people" alt="{{ include.person.name }}">
     {%- endif %}
     <div class="people_name">{{ include.person.name }}</div>
+    {%- if include.person.title and include.person.title != "" %}
     <div class="people_title">{{ include.person.title }}</div>
+    {%- endif %}
 </div>

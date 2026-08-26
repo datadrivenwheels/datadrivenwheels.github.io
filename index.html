@@ -16,10 +16,31 @@ publication, edit the matching file in _data/ — nothing here needs to change.
 {% include section.html id="portfolio" title="Projects" content=projects_grid %}
 
 <!-- About Section -->
+{%- comment -%}
+Two groups from _data/people.yml. The group headings are only rendered when
+there are past members, so a lab with only current members reads as one grid.
+{%- endcomment -%}
+{%- assign current = site.data.people.current -%}
+{%- assign past = site.data.people.past -%}
 {%- capture people_grid -%}
-{%- for person in site.data.people -%}
-{% include person-card.html person=person %}
-{%- endfor -%}
+<div class="col-lg-12">
+    {%- if past and past != empty %}
+    <h3 class="people-group">Current Members</h3>
+    {%- endif %}
+    <div class="row">
+        {%- for person in current -%}
+        {% include person-card.html person=person %}
+        {%- endfor -%}
+    </div>
+    {%- if past and past != empty %}
+    <h3 class="people-group">Past Members</h3>
+    <div class="row">
+        {%- for person in past -%}
+        {% include person-card.html person=person %}
+        {%- endfor -%}
+    </div>
+    {%- endif %}
+</div>
 {%- endcapture -%}
 {% include section.html id="about" title="People" variant="success" content=people_grid %}
 
