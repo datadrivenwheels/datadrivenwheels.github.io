@@ -49,13 +49,6 @@ social:
 # Build --------------------------------------------------------------------
 sass:
   style: compressed
-  # Local-preview only. GitHub Pages builds with --safe, and in safe mode
-  # jekyll-sass-converter discards every sass key except load_paths, syntax,
-  # style and cache (see its scss.rb), so this cannot affect the deployed site.
-  # It silences the @import deprecation warnings from Jekyll 4's newer Sass;
-  # @import has to stay because Pages' older Sass has no @use.
-  silence_deprecations:
-    - import
 
 exclude:
   - Gemfile
