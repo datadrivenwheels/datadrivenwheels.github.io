@@ -49,6 +49,26 @@
   }
 }
 
+// Uniform square tiles -----------------------------------------------------
+// The project images are 900x650, so left to themselves the tiles are wide
+// rectangles of differing heights. Fixing them to a 256px square keeps the
+// grid even; object-fit crops rather than squashing. The link is capped to
+// match, otherwise the hover caption - which is sized to the link - would
+// overhang the image.
+
+#portfolio .portfolio-item .portfolio-link {
+  max-width: 256px;
+}
+
+#portfolio .portfolio-item .portfolio-link img {
+  width: 100%;
+  max-width: 256px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center;
+  margin: 0 auto;
+}
+
 // Projects paging ----------------------------------------------------------
 // The sliding layout is gated behind .is-paged, which js/project-pager.js adds.
 // Without the script the pages stack and every project stays visible.

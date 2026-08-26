@@ -13,6 +13,19 @@ header img {
   display: block;
   margin: 0 auto 20px;
 }
+
+// Render the hero at a fixed 256x256 rather than letting it fill the container.
+// .img-responsive only caps width (max-width: 100%), so a high-resolution
+// source rendered at 1140px wide. Selector is header img.img-responsive so it
+// outranks .img-responsive's own height: auto; aspect-ratio keeps it square
+// even if the source is not, and object-fit crops instead of squashing.
+header img.img-responsive {
+  width: 256px;
+  max-width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center;
+}
 header .intro-text .name {
   display: block;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;

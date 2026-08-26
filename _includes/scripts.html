@@ -1,3 +1,7 @@
+{%- comment -%}
+?v= is the build time, so a deploy cannot be served with stale scripts from
+the max-age=600 cache. Vendor libraries are left alone on purpose.
+{%- endcomment -%}
 <!-- jQuery -->
 <script src="{{ '/vendor/jquery/jquery.min.js' | relative_url }}"></script>
 
@@ -8,10 +12,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
 <!-- Theme JavaScript -->
-<script src="{{ '/js/freelancer.js' | relative_url }}"></script>
+<script src="{{ '/js/freelancer.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 
 <!-- News board auto-scroll -->
-<script src="{{ '/js/news-board.js' | relative_url }}"></script>
+<script src="{{ '/js/news-board.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 
 <!-- Projects pagination -->
-<script src="{{ '/js/project-pager.js' | relative_url }}"></script>
+<script src="{{ '/js/project-pager.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>

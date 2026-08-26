@@ -17,8 +17,16 @@
     <!-- Bootstrap Core CSS -->
     <link href="{{ '/vendor/bootstrap/css/bootstrap.min.css' | relative_url }}" rel="stylesheet">
 
+    {%- comment -%}
+    ?v= is the build time. GitHub Pages serves everything with
+    cache-control: max-age=600, so without this a returning visitor can get new
+    HTML alongside up-to-ten-minute-old CSS. A new build changes the URL, so the
+    browser cannot serve a stale copy. Vendor libraries are deliberately left
+    un-busted: they never change, and busting them would re-download jQuery and
+    Bootstrap on every deploy.
+    {%- endcomment -%}
     <!-- Theme CSS (compiled from _sass/ by Jekyll) -->
-    <link href="{{ '/css/main.css' | relative_url }}" rel="stylesheet">
+    <link href="{{ '/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="{{ '/vendor/font-awesome/css/font-awesome.min.css' | relative_url }}" rel="stylesheet" type="text/css">
