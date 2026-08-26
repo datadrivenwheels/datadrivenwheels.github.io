@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+
+{% include head.html %}
+
+<body id="page-top" class="index">
+
+    {% include nav.html %}
+    {% include header.html %}
+
+    {{ content }}
+
+    {% include footer.html %}
+    {% include scroll-top.html %}
+
+    {%- comment -%}
+    Project modals live at the end of <body>, outside any section, so Bootstrap
+    can overlay them. One per entry in _data/projects.yml, index-matched to the
+    cards rendered by the Projects section.
+    {%- endcomment -%}
+    <!-- Portfolio Modals -->
+    {%- for project in site.data.projects %}
+    {% include project-modal.html project=project index=forloop.index0 %}
+    {%- endfor %}
+
+    {% include scripts.html %}
+
+</body>
+
+</html>

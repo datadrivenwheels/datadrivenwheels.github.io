@@ -1,0 +1,18 @@
+{%- comment -%}
+One tile in the People grid.
+  include.person  an entry from _data/people.yml
+A person with no `link` renders the photo without an anchor.
+{%- endcomment -%}
+{%- assign link = include.person.link -%}
+{%- if link == '#' or link == '' -%}{%- assign link = nil -%}{%- endif -%}
+<div class="col-sm-4 portfolio-item">
+    {%- if link %}
+    <a href="{{ link }}" class="people-link">
+        <img src="{{ include.person.img | relative_url }}" class="img-responsive people" alt="{{ include.person.name }}">
+    </a>
+    {%- else %}
+    <img src="{{ include.person.img | relative_url }}" class="img-responsive people" alt="{{ include.person.name }}">
+    {%- endif %}
+    <div class="people_name">{{ include.person.name }}</div>
+    <div class="people_title">{{ include.person.title }}</div>
+</div>

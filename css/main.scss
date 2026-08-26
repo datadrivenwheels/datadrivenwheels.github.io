@@ -1,0 +1,22 @@
+---
+# Front matter is required for Jekyll to compile this file with Sass.
+# Partials live in _sass/ — add a new @import line when you add one.
+---
+
+/*!
+ * Start Bootstrap - Freelancer v3.3.7+1 (http://startbootstrap.com/template-overviews/freelancer)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+@import "base";
+@import "header";
+@import "navbar";
+@import "sections";
+@import "portfolio";
+@import "people";
+@import "forms";
+@import "footer";
+@import "buttons";
+@import "scroll-top";
+@import "modal";

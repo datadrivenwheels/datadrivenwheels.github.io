@@ -1,0 +1,15 @@
+{%- comment -%}
+One tile in the Projects grid, linking to its modal.
+  include.project  an entry from _data/projects.yml
+  include.index    0-based position, used to build the modal id
+{%- endcomment -%}
+<div class="col-sm-4 portfolio-item">
+    <a href="#portfolioModal{{ include.index | plus: 1 }}" class="portfolio-link" data-toggle="modal">
+        <div class="caption">
+            <div class="caption-content">
+                <i class="fa fa-search-plus fa-3x"></i>
+            </div>
+        </div>
+        <img src="{{ include.project.thumb | relative_url }}" class="img-responsive" alt="{{ include.project.title }}">
+    </a>
+</div>

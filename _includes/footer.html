@@ -1,0 +1,35 @@
+{%- comment -%}
+Footer: contact block, social icons (from site.social in _config.yml), copyright.
+{%- endcomment -%}
+<footer class="text-center">
+    <div class="footer-above">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col col-md-4">
+                    <h3>Contacts</h3>
+                    <p>{{ site.contact.name }}
+                        <br>{{ site.contact.email }}</p>
+                </div>
+                <div class="footer-col col-md-4">
+                    <h3>Around the Web</h3>
+                    <ul class="list-inline">
+                        {%- for item in site.social %}
+                        <li>
+                            <a href="{{ item.url }}" class="btn-social btn-outline" title="{{ item.name }}"><i class="fa fa-fw fa-{{ item.icon }}"></i></a>
+                        </li>
+                        {%- endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-below">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    Copyright &copy; {{ site.lab }} {{ site.copyright_year }}
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

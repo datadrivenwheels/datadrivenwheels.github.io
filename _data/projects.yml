@@ -1,0 +1,80 @@
+# Projects shown in the "Projects" grid and their detail modals.
+#
+# Each entry renders one grid tile plus one modal. Order here is the order on
+# the page. Fields:
+#   title       Modal heading (required)
+#   thumb       Grid tile image (required)
+#   image       Modal image; falls back to `thumb` if omitted
+#   description Modal body text — inline HTML is allowed and not escaped
+#   details     List of {label, value, url}; `url` is optional
+#   placeholder true marks unfinished boilerplate — see TODO notes below
+
+- title: "Real-Time Driving Risk Assessment using Deep Learning with XGBoost"
+  thumb: "img/projects/project1.png"
+  description: >-
+    Traffic crashes typically occur in a few seconds and real-time prediction
+    can significantly benefit traffic safety management and the development of
+    safety countermeasures. This paper presents a novel deep learning model for
+    crash identification based on high-frequency, high-resolution continuous
+    driving data. A <a href="https://utc-deep-prediction.cloud.vtti.vt.edu/">web-base
+    app</a> is built to issue the model's performance.
+  details:
+    - label: "Related Paper"
+      value: "link"
+      url: "http://startbootstrap.com"
+    - label: "Date"
+      value: "April 2022"
+
+# ---------------------------------------------------------------------------
+# TODO: the five entries below are still Start Bootstrap template boilerplate.
+# Replace title/description/details with real project details (and swap `image`
+# for a real figure) as each one is written up, then drop `placeholder: true`.
+# ---------------------------------------------------------------------------
+
+- title: "Project Title"
+  placeholder: true
+  thumb: "img/projects/project2.png"
+  image: "img/portfolio/cake.png"
+  description: &boilerplate >-
+    Use this area of the page to describe your project. The icon above is part
+    of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat
+    Icons</a>. On their website, you can download their free set with 16 icons,
+    or you can purchase the entire set with 146 icons for only $12!
+  details: &boilerplate_details
+    - label: "Client"
+      value: "Yourname"
+      url: "http://startbootstrap.com"
+    - label: "Date"
+      value: "April 2014"
+      url: "http://startbootstrap.com"
+    - label: "Service"
+      value: "Web Development"
+      url: "http://startbootstrap.com"
+
+- title: "Project Title"
+  placeholder: true
+  thumb: "img/projects/project3.png"
+  image: "img/portfolio/circus.png"
+  description: *boilerplate
+  details: *boilerplate_details
+
+- title: "Project Title"
+  placeholder: true
+  thumb: "img/projects/project4.jpg"
+  image: "img/portfolio/game.png"
+  description: *boilerplate
+  details: *boilerplate_details
+
+- title: "Project Title"
+  placeholder: true
+  thumb: "img/projects/project5.jpg"
+  image: "img/portfolio/safe.png"
+  description: *boilerplate
+  details: *boilerplate_details
+
+- title: "Project Title"
+  placeholder: true
+  thumb: "img/projects/project6.jpg"
+  image: "img/portfolio/submarine.png"
+  description: *boilerplate
+  details: *boilerplate_details

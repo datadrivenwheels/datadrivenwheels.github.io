@@ -1,0 +1,70 @@
+# Site metadata --------------------------------------------------------------
+title: Intelligent Transportation Lab
+institution: Virginia Tech Transportation Institute
+lab: Intelligent Transportation Lab
+description: >-
+  The Intelligent Transportation Lab at the Virginia Tech Transportation
+  Institute studies driving risk and traffic safety using high-resolution
+  naturalistic driving data.
+author: Intelligent Transportation Lab
+lang: en
+copyright_year: 2022
+
+logo: /img/vtti-white_small.png
+hero_image: /img/profile.png
+
+contact:
+  name: Feng Guo
+  email: fguo@vtti.vt.edu
+
+# Navigation ----------------------------------------------------------------
+# Anchor links into the sections rendered by index.html.
+nav:
+  - title: Projects
+    url: "#portfolio"
+  - title: People
+    url: "#about"
+
+# Footer social icons -------------------------------------------------------
+# `icon` is a Font Awesome 4 name (fa-<icon>). Set real URLs or delete entries.
+social:
+  - name: Facebook
+    icon: facebook
+    url: "#"
+  - name: Google Plus
+    icon: google-plus
+    url: "#"
+  - name: Twitter
+    icon: twitter
+    url: "#"
+  - name: LinkedIn
+    icon: linkedin
+    url: "#"
+  - name: Dribbble
+    icon: dribbble
+    url: "#"
+
+# Build --------------------------------------------------------------------
+sass:
+  style: compressed
+  # Local-preview only. GitHub Pages builds with --safe, and in safe mode
+  # jekyll-sass-converter discards every sass key except load_paths, syntax,
+  # style and cache (see its scss.rb), so this cannot affect the deployed site.
+  # It silences the @import deprecation warnings from Jekyll 4's newer Sass;
+  # @import has to stay because Pages' older Sass has no @use.
+  silence_deprecations:
+    - import
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - vendor/bundle
+  - vendor/cache
+  - vendor/gems
+  - vendor/ruby
+  # Font Awesome ships Less/Sass sources alongside the compiled CSS; only the
+  # CSS is used at runtime, so keep them out of the build output.
+  - vendor/font-awesome/less
+  - vendor/font-awesome/scss

@@ -1,0 +1,15 @@
+{%- comment -%}Hero banner: logo image over the institution and lab names.{%- endcomment -%}
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <img class="img-responsive" src="{{ site.hero_image | relative_url }}" alt="">
+                <div class="intro-text">
+                    <span class="name">{{ site.institution }}</span>
+                    <hr class="star-light">
+                    <span class="skills">{{ site.lab }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

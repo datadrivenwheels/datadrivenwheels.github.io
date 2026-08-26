@@ -1,0 +1,20 @@
+{%- comment -%}
+Section wrapper: centered heading + star divider, then caller-supplied content.
+  include.id       anchor id (required)
+  include.title    heading text (required)
+  include.variant  extra class on <section>, e.g. "success" for the green band
+  include.content  pre-rendered inner HTML
+{%- endcomment -%}
+<section{% if include.variant %} class="{{ include.variant }}"{% endif %} id="{{ include.id }}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>{{ include.title }}</h2>
+                <hr class="star-primary">
+            </div>
+        </div>
+        <div class="row">
+            {{ include.content }}
+        </div>
+    </div>
+</section>

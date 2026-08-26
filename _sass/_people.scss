@@ -1,0 +1,47 @@
+// People grid — circular avatars, names, titles
+
+// Every avatar renders at exactly this size regardless of the source image's
+// dimensions, so the grid stays even and the names line up across the row.
+// 240px is the largest size that does not upscale the smallest photo we ship
+// (256px); raising it means blurrier small photos, not bigger ones.
+$avatar-size: 240px;
+
+// The anchor must be a block with a definite width, otherwise the percentage
+// width on .people below has no containing block to resolve against and the
+// image collapses to zero. The projects grid gets this from its own
+// .portfolio-link rules, which are scoped to #portfolio and do not apply here.
+.people-link {
+  display: block;
+  max-width: $avatar-size;
+  margin: 0 auto;
+}
+
+.people {
+  display: block;
+  width: 100%;
+  max-width: $avatar-size;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  // Fills the square and crops the overflow, so non-square photos are centred
+  // rather than squashed.
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+.people_name {
+  color: white;
+  text-align: center;
+  font-size: 2em;
+  width: 100%;
+  display: block;
+  margin-top: 30px;
+}
+
+.people_title {
+  color: white;
+  text-align: center;
+  font-size: 1.3em;
+  width: 100%;
+  display: block;
+}

@@ -1,0 +1,26 @@
+{%- comment -%}
+Fixed top navigation. Links come from site.nav in _config.yml.
+{%- endcomment -%}
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+    <div class="container">
+        <div class="navbar-header page-scroll">
+            <img class="navbar-logo" src="{{ site.logo | relative_url }}" alt="{{ site.institution }}">
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                {%- for item in site.nav %}
+                <li class="page-scroll">
+                    <a href="{{ item.url }}">{{ item.title }}</a>
+                </li>
+                {%- endfor %}
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
