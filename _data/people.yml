@@ -19,10 +19,10 @@ current:
     img: "img/people/liang.jpeg"
     link: "https://www.vtti.vt.edu/staffdir/bio.php?&pn=15189"
     
-  - name: "Liang Shi"
-    title: "CV and ML researcher"
-    img: "img/people/liang.jpeg"
-    link: "https://www.vtti.vt.edu/staffdir/bio.php?&pn=15189"
+  - name: "Shu Han"
+    title: "Statistics Research Associate Faculty"
+    img: "img/people/Han_Shu.jpg"
+    link: "hhttps://www.vtti.vt.edu/staffdir/bio.php?&pn=120117"
     
   - name: "Liang Shi"
     title: "CV and ML researcher"
@@ -33,6 +33,11 @@ current:
     title: "CV and ML researcher"
     img: "img/people/liang.jpeg"
     link: "https://www.vtti.vt.edu/staffdir/bio.php?&pn=15189"
+
+  - name: "Zhenyuan Yuan"
+    title: "Research Associate"
+    img: "img/people/Yuan_Zhenyuan.jpg"
+    link: "https://www.vtti.vt.edu/staffdir/bio.php?&pn=252114"
 
 # Past members need only a name and a photo. Drop the photo in img/people/
 # first - a missing file renders as a broken image rather than failing the
